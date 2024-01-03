@@ -26,4 +26,28 @@ const App = () => {
   );
 };
 
+//properties passed 
+// function header(props){
+//   return <h1>Hello {props}</h1>
+// }
+//Map function
+// function App(){
+//   const people = ["John", "Dave","Jane"];
+//   return(
+//     <ul>{
+//       people.map(person=> <li>{person}</li>)
+//       }
+//     </ul>
+//   ) 
+// }
+
+// function Person(props){
+//   function handlePersonClick(event){
+//     alert('props.person')
+//     console.log(event)
+//   }
+//   return <li onClick ={handlePersonClick}>{props.Person}</li>
+// }
+
+
 export default App;
