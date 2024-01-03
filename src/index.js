@@ -27,10 +27,15 @@ import ReactDOM from 'react-dom';
 
 // React hooks
  function App(){
-  const inputState = React.useState('some text');
-  const inputValue = inputState[0];
+  // Old javascript methods
+  // const inputState = React.useState("");
+  // const inputValue = inputState[0];
   // function to change to input states
-  const setInputValue = inputState[1];
+  //const setInputValue = inputState[1];
+  
+  // Modern ES6 method
+  // Array destructuring
+  const [inputValue, setInputValue] = React.useState("");
   function handleInputChange(event){
     //value = event.target.value;
     //console.log(value);
@@ -38,7 +43,7 @@ import ReactDOM from 'react-dom';
   }
   return (
     <div>
-      <input onChnage ={handleInputChange}/>
+      <input onChange ={handleInputChange}/>
       <p>{inputValue}</p>
     </div>
   )
