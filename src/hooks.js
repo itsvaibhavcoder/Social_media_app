@@ -45,14 +45,27 @@ function Hooks(){
             isEmployed: !prevState.isEmployed
         }));
     }
+    function handleChangeName(event){
+        setDeveloper({
+            ...developer,
+            name: event.target.value
+        });
+    }
+    
     // const [language, setLanguage] = React.useState('python')
     // const [yearExperience, setYearsExperience] = React.useState(0);
     
     const [developer, setDeveloper] = React.useState({
+        name : "",
         language: "Python",
         setYearsExperience : 0,
         isEmployed: false
     });
+    // use effect hooks 
+    React.useEffect(()=>{
+        document.title =  developer.name;
+        console.log("runs");
+    }, [developer.name]);
 
     return(
       <div>
@@ -72,6 +85,9 @@ function Hooks(){
             ...developer, // only want to change YOE
             yearExperience : event.target.value
         })}/>
+        <input 
+        type ="text"
+        onChange = {handleChangeName}/>
         <p>I am learning {developer.language}</p>
         <p>I have {developer.yearExperience} year of exeperience</p>
         <p>Employment status : {developer.isEmployed ? "Employed" : "Unemployed"}</p>
