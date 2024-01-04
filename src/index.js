@@ -1,16 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-//import Hooks from './hooks.js'; // Correct import statement: Use PascalCase for components
-// import Position from './mousePositionTrack.js';
+import App from './App';
 
-import API from './ApiUseEffectHook';
+const rootNode = document.getElementById('root');
 
-ReactDOM.render(
-  <div>
-    {/* <Hooks /> */}
-    {/* {<Position/>} */}
-    <API/>
-  </div>,
-  document.getElementById('root')
-);
+const root = ReactDOM.createRoot(rootNode);
+root.render(<App />);
 
