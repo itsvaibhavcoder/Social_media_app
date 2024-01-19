@@ -1,8 +1,11 @@
 import React from "react";
 
-function Header(){
+function Header({user, setUser}){
     return (
-        <div>header</div>
+        <div>
+            Welcome, {user}!
+            <button onClick={()=> setUser("")}>Logout</button>
+        </div>
     );
 }
 
