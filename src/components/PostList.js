@@ -1,8 +1,13 @@
 import React from "react";
+import Post from './Post';
 
-function PostList(){
+function PostList({ posts }) {
     return (
-        <div>postlist</div>
+        <div>
+            {posts.map((post, i) => (
+                <Post key={i} post={post} />
+            ))}
+        </div>
     );
 }
 
