@@ -1,13 +1,15 @@
 import React from "react";
-
+import { PostContext } from "../App";
 function CreatePost({user,handleAddPost}){
+    const {dispatch} = React.useContext(PostContext);
     const[content, setContent] = React.useState("");
     const [image, setImage] = React.useState(null);
     const imageInputRef = React.useRef();
     function handleSubmit(event){
         event.preventDefault();
         const post = {content:content, image:image, user:user};
-        handleAddPost(post);
+        // handleAddPost(post);
+        dispatch({type: "ADD_POST", payload: {post}});
         // const newPosts = [post, ...posts]
         // setPosts(newPosts);
         setContent("");

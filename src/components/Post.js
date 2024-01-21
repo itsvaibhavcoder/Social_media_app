@@ -1,18 +1,44 @@
 import React from "react";
-
-function Post({ post }) {
+import { UserContext, PostContext } from "../App";
+function Post({ image, content,user, id}) {
+    const currentUser = React.useContext(UserContext);
+    const {dispatch} = React.useContext(PostContext);
+    const isCurrentUser = currentUser === user;
+    function handleDeletePost(){
+        dispatch({type : "DELETE_POST", payload: {id}});
+    }
     return (
-        <React.Fragment>
-            {post.image && (
-                <img 
-                    style={{ height: 100, width: 200, objectFit: "cover" }}
-                    src={URL.createObjectURL(post.image)}
-                    alt="Post cover"
-                />
-            )}
-            <p>{post.content}</p>
-            <div>{post.user}</div>
-        </React.Fragment>
+        <>
+        {image && (
+            <img 
+            style={{ height: 100, width: 200, objectFit: "cover" }}
+            src={URL.createObjectURL(image)}
+            alt="Post cover"
+            />
+        )}
+        <p>{content}</p>
+    <div style ={{color:isCurrentUser&& 'green'}}>{user}</div>
+    <div>
+    {isCurrentUser && <button onClick ={handleDeletePost}>Delete</button>}
+    </div>
+        </>
+    // <UserContext.Consumer>
+    //     {currentUser=>(
+    //         <>
+    //             {image && (
+    //         <img 
+    //             style={{ height: 100, width: 200, objectFit: "cover" }}
+    //             src={URL.createObjectURL(image)}
+    //             alt="Post cover"
+    //         />
+    //     )}
+    //     <p>{content}</p>
+    //     <div style ={{color : currentUser===user && 'green'}}>{user}</div>
+    //         </>
+                
+    //     )}
+        
+    // </UserContext.Consumer>
     );
 }
 
